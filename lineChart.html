@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <link rel="stylesheet" 
+          href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.css">
+    <link rel="stylesheet" 
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+    crossorigin="anonymous">
+    <title>Line chart</title>
+</head>
+<body>
+
+    <style>
+        body{
+            background-color: rgb(255, 231, 10);
+        }
+    </style>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 m-auto">
+                <div class="card mt-4 ">
+                    <div class="card-body">
+                        <div class="chart-container" style="position: relative;">
+                            <canvas id="line_chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+   
+  
+   
+    <!-- script for the graph -->
+
+    <script>
+
+        Chart.defaults.global.elements.point,hitRadius = 10;    
+
+        let line_canvas = document.getElementById('line_chart').getContext('2d');
+        let lineChart = new Chart(line_canvas, {
+            type: 'line',
+            data: {
+                labels : ["Jan", "Feb", "Mar", "Apr", "May"],
+                datasets: [{
+                    label: "Likes",
+                    data: [20, 50, 40, 30, 70],
+                    backgroundColor : "",
+                    borderWidth: 1,
+                    borderColor : "black",
+                    hoverBorderColor: "green",
+                    hoverBorderWidth: 3,
+                    // fill = "false",
+                    hoverBackgroundColor: 'rgba(154, 245, 140)',
+                    pointHoverRadius: 5
+                }],
+            },
+            // all the things under configurations go under the options
+            options: {
+                title :{
+                    display: true,
+                    text: "Line Graph Demo",
+                    fontSize: 20,
+                },
+                legend:{
+                    position: "right",
+                    labels:{
+                        fontColor: "Red"
+                    },
+                    display: false,
+                },
+                layout:{
+                    padding: {
+                        // rigth: 20,
+                        // left: 30,
+                        // top: 40,
+                        // bottom: 0
+                    }
+                },
+
+                tooltips:{
+                    borderWidth:3,
+                    title: ["Jan", "Feb", "Mar", "Apr", "May"],
+                    borderColor: 'rgba(154, 245, 140)',
+                    
+                },
+
+                elements:{
+                    hitRadius: 3,
+                }
+            }
+        })
+    </script>
+
+
+
+    <!-- bootstrap JS links -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+            crossorigin="anonymous"></script>
+</body>
+</html>
